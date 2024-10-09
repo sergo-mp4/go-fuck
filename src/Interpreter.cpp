@@ -31,7 +31,7 @@ std::vector<Token> lex(const std::string& source) {
                     currentToken.clear();
                 } else {
                     tokens.push_back({COMMENT, currentToken});
-                    currentToken = clear();
+                    currentToken.clear();
                 }
             }
         } else {
@@ -62,7 +62,7 @@ void parse(const std::vector<Token>& tokens) {
 int main() {
     std::string source;
     std::cout << "Enter GoFuck code: ";
-    std::geline(std::cin, source);
+    std::getline(std::cin, source);
 
     std::vector<Token> tokens = lex(source);
     parse(tokens);
